@@ -1,0 +1,163 @@
+/* styles.css */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Times New Roman, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#projection-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#figure-container {
+  position: relative;
+  width: 30%;
+  max-width: 400px;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#figure-container svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 1s ease-in-out;
+}
+
+#figure-svg {
+  z-index: 2;
+  opacity: 1;
+}
+
+#glow-figure-svg {
+  z-index: 1;
+  opacity: 0;
+}
+
+/* #quotes-container {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  color: white;
+} */
+
+#quotes-container {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.quote {
+  font-size: 20px;
+  margin: 5px;
+  position: absolute;
+  opacity: 0;
+  color: rgb(0, 0, 0);
+  background-color: rgba(82, 53, 123, 0);
+  padding: 5px 10px;
+  border-radius: 90px;
+  transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.5s ease;
+}
+
+#interaction-panel {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background: rgba(82,53,123,0.15);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(82,53,123,0.15);
+  padding: 24px 32px 16px 32px;
+  backdrop-filter: blur(12px);
+  z-index: 10;
+}
+
+#interaction-panel input {
+  padding: 12px 18px;
+  margin-top: 10px;
+  width: 260px;
+  font-size: 16px;
+  background: rgba(82,53,123,0.12);
+  color: white;
+  border: none;
+  border-radius: 18px;
+  outline: none;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(82,53,123,0.08);
+  backdrop-filter: blur(8px);
+}
+
+#interaction-panel button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 40px;
+  margin: 0 10px;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(135deg, #52357B 0%, #7c5dc1 100%);
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 0 6px rgba(124, 93, 193, 0.18), 0 4px 24px rgba(82, 53, 123, 0.18);
+  outline: none;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s, filter 0.2s;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+#interaction-panel button:before {
+  content: '';
+  position: absolute;
+  top: -8px; left: -8px; right: -8px; bottom: -8px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #7c5dc1 0%, #52357B 100%);
+  filter: blur(12px);
+  opacity: 0.35;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#interaction-panel button:hover, #interaction-panel .mode-btn.active {
+  background: linear-gradient(135deg, #7c5dc1 0%, #52357B 100%);
+  color: #fff;
+  box-shadow: 0 0 0 12px rgba(124, 93, 193, 0.22), 0 8px 32px rgba(82, 53, 123, 0.22);
+  filter: brightness(1.08) saturate(1.2);
+}
+
+/* Remove redundant rules */
+#interaction-panel .mode-btn {
+  /* All necessary styles are in the #interaction-panel button selector */
+}
+#interaction-panel .mode-btn:before {
+  /* All necessary styles are in the #interaction-panel button:before selector */
+}
